@@ -10,6 +10,10 @@ if(localStorage.getItem("toDoObjects") !== null){
   toDoObjects = JSON.parse(localStorage.getItem("toDoObjects"));
 }
 
+for(object of toDoObjects) {
+  createAndAppendLi(object);
+}
+
 addButton.addEventListener("click", addItem);
 saveButton.addEventListener("click", saveToDoObjects);
 clearButton.addEventListener("click", clearToDoObjects);
@@ -21,15 +25,7 @@ function addItem() {
   };
   toDoObjects.push(toDoObj);
 
-  const li = document.createElement("li");
-  const liValue = document.createElement("span");
-  const liDate = document.createElement("span");
-  liValue.classList.add("todo-value");
-  liDate.classList.add("todo-date");
-  liValue.textContent = toDoObj.content;
-  liDate.textContent = toDoObj.date;
-  li.append(liValue, liDate);
-  toDoList.append(li);
+  createAndAppendLi(toDoObj);
 }
 
 function saveToDoObjects() {
@@ -40,4 +36,16 @@ function saveToDoObjects() {
 function clearToDoObjects() {
   localStorage.clear();
   console.log(localStorage.getItem("toDoObjects"));
+}
+
+function createAndAppendLi(object) {
+  const li = document.createElement("li");
+  const liValue = document.createElement("span");
+  const liDate = document.createElement("span");
+  liValue.classList.add("todo-value");
+  liDate.classList.add("todo-date");
+  liValue.textContent = object.content;
+  liDate.textContent = object.date;
+  li.append(liValue, liDate);
+  toDoList.append(li);
 }
