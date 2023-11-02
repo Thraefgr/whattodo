@@ -30,7 +30,6 @@ function addItem() {
 
 function saveToDoObjects() {
   localStorage.setItem("toDoObjects", JSON.stringify(toDoObjects));
-  console.log(localStorage.getItem("toDoObjects"));
 }
 
 function clearToDoObjects() {
@@ -38,7 +37,6 @@ function clearToDoObjects() {
     toDoList.removeChild(toDoList.firstChild);
   }
   localStorage.clear();
-  console.log(localStorage.getItem("toDoObjects"));
 }
 
 function createAndAppendLi(object) {
