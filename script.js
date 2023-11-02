@@ -1,6 +1,7 @@
 const toDoList = document.querySelector(".todo-list");
 const addButton = document.querySelector(".add-btn");
 const saveButton = document.querySelector(".save-btn");
+const clearButton = document.querySelector(".clear-btn")
 const textInput = document.querySelector(".text-in");
 const dateInput = document.querySelector(".date-in");
 const toDoObj = {
@@ -15,6 +16,7 @@ if(localStorage.getItem("toDoObjects") !== null){
 
 addButton.addEventListener("click", addItem);
 saveButton.addEventListener("click", saveToDoObjects);
+clearButton.addEventListener("click", clearToDoObjects);
 
 function addItem() {
   toDoObj.content = textInput.value;
@@ -34,5 +36,10 @@ function addItem() {
 
 function saveToDoObjects() {
   localStorage.setItem("toDoObjects", JSON.stringify(toDoObjects));
+  console.log(localStorage.getItem("toDoObjects"));
+}
+
+function clearToDoObjects() {
+  localStorage.clear();
   console.log(localStorage.getItem("toDoObjects"));
 }
