@@ -4,10 +4,6 @@ const saveButton = document.querySelector(".save-btn");
 const clearButton = document.querySelector(".clear-btn")
 const textInput = document.querySelector(".text-in");
 const dateInput = document.querySelector(".date-in");
-const toDoObj = {
-  content: null,
-  date: ""
-};
 let toDoObjects = [];
 
 if(localStorage.getItem("toDoObjects") !== null){
@@ -19,8 +15,10 @@ saveButton.addEventListener("click", saveToDoObjects);
 clearButton.addEventListener("click", clearToDoObjects);
 
 function addItem() {
-  toDoObj.content = textInput.value;
-  toDoObj.date = dateInput.value;
+  const toDoObj = {
+    content: textInput.value,
+    date: dateInput.value
+  };
   toDoObjects.push(toDoObj);
 
   const li = document.createElement("li");
