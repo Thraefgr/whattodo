@@ -1,14 +1,20 @@
 const toDoList = document.querySelector(".todo-list");
 const addButton = document.querySelector(".add-btn");
+const saveButton = document.querySelector(".save-btn");
 const textInput = document.querySelector(".text-in");
 const dateInput = document.querySelector(".date-in");
 const toDoObj = {
   content: null,
   date: ""
 };
-const toDoObjects = [];
+let toDoObjects = [];
+
+if(localStorage.getItem("toDoObjects") !== null){
+  toDoObjects = JSON.parse(localStorage.getItem("toDoObjects"));
+}
 
 addButton.addEventListener("click", addItem);
+saveButton.addEventListener("click", saveToDoObjects);
 
 function addItem() {
   toDoObj.content = textInput.value;
@@ -24,5 +30,9 @@ function addItem() {
   liDate.textContent = toDoObj.date;
   li.append(liValue, liDate);
   toDoList.append(li);
-  console.log(toDoObjects);
+}
+
+function saveToDoObjects() {
+  localStorage.setItem("toDoObjects", JSON.stringify(toDoObjects));
+  console.log(localStorage.getItem("toDoObjects"));
 }
