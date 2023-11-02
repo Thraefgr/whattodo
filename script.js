@@ -34,6 +34,9 @@ function saveToDoObjects() {
 }
 
 function clearToDoObjects() {
+  while (toDoList.firstChild) {
+    toDoList.removeChild(toDoList.firstChild);
+  }
   localStorage.clear();
   console.log(localStorage.getItem("toDoObjects"));
 }
