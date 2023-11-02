@@ -2,4 +2,55 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-weight: 800;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(22, 22, 22);
+  color: rgb(242, 242, 242);
+}
+
+.form {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.form button, .form input {
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: rgb(242, 242, 242);
+}
+
+
+.todo-list li {
+  display: grid;
+  grid-template: 1fr / 3fr 2fr;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.todo-value {
+  overflow: auto;
+}
+
+.todo-date {
+  text-align: end;
+}
+
+.text-in {
+  grid-column: span 3;
+}
+
+.date-in {
+  grid-column: span 1;
+}
+
+.add-btn {
+  grid-column: span 2;
 }
